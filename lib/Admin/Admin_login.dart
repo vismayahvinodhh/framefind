@@ -1,108 +1,32 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:framefind/Admin/Admin_dashboard.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class AdminLoginPage extends StatefulWidget {
-  const AdminLoginPage({super.key});
-
-  @override
-  State<AdminLoginPage> createState() => _AdminLoginPageState();
-}
-
-class _AdminLoginPageState extends State<AdminLoginPage> {
+class Admin_Login extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 200),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+      backgroundColor: Colors.white,
+      body: Column(
+        children: [
+          // Top Decorated Section
+          Expanded(
+            flex: 2,
+            child: Stack(
               children: [
-                SizedBox(height: 100),
-                Text(
-                  "Welcome ",
-                  style: TextStyle(
-                    fontSize: 35,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.brown,
-                  ),
-                ),
-                Text(
-                  "to FrameFind Admin Panel",
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.brown,
-                  ),
-                ),
-                SizedBox(height: 60),
-                TextFormField(
-                  controller: _emailController,
-                  decoration: InputDecoration(
-                    labelText: "Email",
-                    hintText: "example@gmail.com",
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(24)),
-                  ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return "Please enter your email";
-                    }
-                    if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-                      return "Please enter a valid email";
-                    }
-                    return null;
-                  },
-                ),
-                SizedBox(height: 20),
-                TextFormField(
-                  controller: _passwordController,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    labelText: "Password",
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(24)),
-                    suffixIcon: Icon(Icons.visibility_off),
-                  ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return "Please enter your password";
-                    }
-                    if (value.length < 6) {
-                      return "Password must be at least 6 characters long";
-                    }
-                    return null;
-                  },
-                ),
-                SizedBox(height: 20),
-                Center(
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.brown, // Button color
-                      padding:
-                          EdgeInsets.symmetric(vertical: 19, horizontal: 120),
-                    ),
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        print("Email: ${_emailController.text}");
-                        print("Password: ${_passwordController.text}");
-                      }
-                    },
-                    child: InkWell(onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) {
-                        return Admin_Dashboard();
-                      },));
-                    },
-                      child: Text(
-                        "Login",
-                        style: TextStyle(fontSize: 16, color: Colors.white),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Container(
+                    height: 120,
+                    width: 150,
+                    decoration: const BoxDecoration(
+                      color: Colors.brown,
+                      borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(80),
                       ),
                     ),
                   ),
@@ -110,7 +34,141 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
               ],
             ),
           ),
-        ),
+
+          // Form Section
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Welcome Text
+                  Text(
+                    "Welcome",
+                    style: GoogleFonts.poppins(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.brown,
+                    ),
+                  ),
+                  Text(
+                    "to FrameFind Admin Panel",
+                    style: GoogleFonts.poppins(
+                      fontSize: 16,
+                      color: Colors.brown,
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+
+                  // Email TextField
+                  TextFormField(
+                    controller: _emailController,
+                    decoration: InputDecoration(
+                      labelText: "Email",
+                      labelStyle: GoogleFonts.poppins(),
+                      hintText: "example@email.com",
+                      hintStyle: GoogleFonts.poppins(),
+                      border: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                      ),
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Email is required";
+                      } else if (!RegExp(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
+                          .hasMatch(value)) {
+                        return "Enter a valid email address";
+                      }
+                      return null;
+                    },
+                  ),
+
+                  const SizedBox(height: 20),
+
+                  // Password TextField
+                  TextFormField(
+                    controller: _passwordController,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      labelText: "Password",
+                      labelStyle: GoogleFonts.poppins(),
+                      hintText: "********",
+                      hintStyle: GoogleFonts.poppins(),
+                      suffixIcon: const Icon(Icons.visibility_off),
+                      border: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                      ),
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Password is required";
+                      } else if (value.length < 6) {
+                        return "Password must be at least 6 characters";
+                      }
+                      return null;
+                    },
+                  ),
+
+                  const SizedBox(height: 40),
+
+                  // Login Button
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          // Navigate to Admin Dashboard
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Admin_Dashboard(),
+                            ),
+                          );
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.brown,
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      child: Text(
+                        "Login",
+                        style: GoogleFonts.poppins(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Stack(
+              children: [
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: Container(
+                    height: 120,
+                    width: 150,
+                    decoration: const BoxDecoration(
+                      color: Colors.brown,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(80),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

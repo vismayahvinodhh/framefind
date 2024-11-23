@@ -1,16 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:framefind/Admin/Admin_dashboard.dart';
-import 'package:framefind/Admin/Admin_homepg.dart';
 
-class Admin_Photographer extends StatefulWidget {
-  const Admin_Photographer({super.key});
+class Admin_User extends StatefulWidget {
+  const Admin_User({super.key});
 
   @override
-  State<Admin_Photographer> createState() => _Admin_PhotographerState();
+  State<Admin_User> createState() => _Admin_UserState();
 }
 
-class _Admin_PhotographerState extends State<Admin_Photographer> {
+class _Admin_UserState extends State<Admin_User> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +22,7 @@ class _Admin_PhotographerState extends State<Admin_Photographer> {
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (context) {
-                return AdminHomePg();
+                return Admin_Dashboard();
               },
             ));
           },
@@ -52,7 +51,7 @@ class _Admin_PhotographerState extends State<Admin_Photographer> {
                   SizedBox(height: 16),
                   // Photographer Name
                   Text(
-                    "Photographer Name",
+                    "Name",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   Row(
@@ -60,18 +59,18 @@ class _Admin_PhotographerState extends State<Admin_Photographer> {
                       Text(
                         "Username",
                         style:
-                            TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                       )
                     ],
                   ),
                   SizedBox(height: 10),
                   TextFormField(
                       decoration: InputDecoration(
-                    hintText: "username",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                  )),
+                        hintText: "username",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                      )),
                   Column(
                     children: [
                       Row(
@@ -86,11 +85,11 @@ class _Admin_PhotographerState extends State<Admin_Photographer> {
                       SizedBox(height: 10),
                       TextFormField(
                           decoration: InputDecoration(
-                        hintText: "00000",
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                      )),
+                            hintText: "00000",
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                          )),
                       Row(
                         children: [
                           Text(
@@ -103,15 +102,15 @@ class _Admin_PhotographerState extends State<Admin_Photographer> {
                       SizedBox(height: 10),
                       TextFormField(
                           decoration: InputDecoration(
-                        hintText: "example@gmail.com",
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                      )),
+                            hintText: "example@gmail.com",
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                          )),
                       Row(
                         children: [
                           Text(
-                            "Work experiance",
+                            "Theme",
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 15),
                           )
@@ -120,15 +119,15 @@ class _Admin_PhotographerState extends State<Admin_Photographer> {
                       SizedBox(height: 10),
                       TextFormField(
                           decoration: InputDecoration(
-                        hintText: "experiance",
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                      )),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                          )),
+
                       Row(
                         children: [
                           Text(
-                            "Company Name/Freelancer",
+                            " Location",
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 15),
                           )
@@ -137,28 +136,10 @@ class _Admin_PhotographerState extends State<Admin_Photographer> {
                       SizedBox(height: 10),
                       TextFormField(
                           decoration: InputDecoration(
-                        hintText: "company name",
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                      )),
-                      Row(
-                        children: [
-                          Text(
-                            "Your location",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 15),
-                          )
-                        ],
-                      ),
-                      SizedBox(height: 10),
-                      TextFormField(
-                          decoration: InputDecoration(
-                        hintText: "Enter your location",
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                      )),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                          )),
                       SizedBox(
                         height: 10,
                       ),
@@ -172,11 +153,11 @@ class _Admin_PhotographerState extends State<Admin_Photographer> {
                             ),
                             child: Center(
                                 child: Text(
-                              'Accept',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                            )),
+                                  'Accept',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                )),
                           ),SizedBox(
                             width: 30,
                           ),
