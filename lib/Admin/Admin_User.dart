@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:framefind/Admin/Admin_dashboard.dart';
+import 'package:framefind/Admin/Admin_homeUser.dart';
 
 class Admin_User extends StatefulWidget {
   const Admin_User({super.key});
@@ -22,7 +23,7 @@ class _Admin_UserState extends State<Admin_User> {
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (context) {
-                return Admin_Dashboard();
+                return Admin_homeUser();
               },
             ));
           },
@@ -43,7 +44,7 @@ class _Admin_UserState extends State<Admin_User> {
                 children: [
                   CircleAvatar(
                     radius: 30,
-                    backgroundColor: Colors.brown,
+                    backgroundColor: Colors.white,
                     child: Image(
                       image: AssetImage("assets/admin.png"),
                     ),

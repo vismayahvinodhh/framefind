@@ -8,6 +8,7 @@ import 'Admin/Admin_dashboard.dart';
 import 'Admin/Admin_homepg.dart';
 import 'Admin/Admin_login.dart';
 import 'Admin/Admin_paymentdetails.dart';
+import 'Useradminphotographer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: Admin_Login(),
+        home: Home(),
 
 
       ),

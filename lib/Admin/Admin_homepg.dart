@@ -28,7 +28,7 @@ class AdminHomePg extends StatelessWidget {
                   Expanded(
                     child: Center(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 30),
+                        padding: const EdgeInsets.only(top: 20),
                         child: Container(
                           height: 40,
                           width: 160,

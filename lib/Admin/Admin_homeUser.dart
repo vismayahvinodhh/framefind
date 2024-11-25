@@ -17,7 +17,7 @@ class Admin_homeUser extends StatelessWidget {
           icon: Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return Admin_homeUser();
+              return Admin_Dashboard();
             },)); // Navigate back
           },
         ),

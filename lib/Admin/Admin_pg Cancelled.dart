@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:framefind/Admin/Admin_dashboard.dart';
+import 'package:framefind/Admin/Admin_pg%20Cancelled%20details.dart';
 
 class Admin_CancelledPg extends StatelessWidget {
   @override
@@ -45,42 +46,48 @@ class Admin_CancelledPg extends StatelessWidget {
             ),
             const SizedBox(height: 20), // Add space between header and list
             Expanded(
-              child: ListView.builder(
-                padding: const EdgeInsets.all(10.0),
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 3.0),
-                    child: ListTile(
-                      tileColor: Colors.grey[200],
-                      leading: Container(
-                        width: 40,
-                        height: 40,
-                        decoration: BoxDecoration(
-                          color: Colors.brown.shade100,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Image.asset(
-                          'assets/admin.png', // Replace with your desired image
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      title: const Text(
-                        'Name',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      subtitle: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text(
-                            'Date',
-                            style: TextStyle(fontSize: 16),
+              child: InkWell(onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return Admin_Pgcancelled_details();
+                },));
+              },
+                child: ListView.builder(
+                  padding: const EdgeInsets.all(10.0),
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 3.0),
+                      child: ListTile(
+                        tileColor: Colors.grey[200],
+                        leading: Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: Colors.brown.shade100,
+                            borderRadius: BorderRadius.circular(8),
                           ),
-                        ],
+                          child: Image.asset(
+                            'assets/admin.png', // Replace with your desired image
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        title: const Text(
+                          'Name',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            Text(
+                              'Date',
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
             ),
           ],

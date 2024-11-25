@@ -42,7 +42,7 @@ class _Admin_NotificationState extends State<Admin_Notification> {
       floatingActionButton: FloatingActionButton(
         child: InkWell(onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return Admin_Addnotification();
+            return Admin_addnotification();
           },));
         },
           child: Icon(
