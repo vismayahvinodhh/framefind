@@ -16,7 +16,7 @@ class Admin_CancelledPg extends StatelessWidget {
               child: Row(
                 children: [
                   IconButton(
-                    icon: const Icon(Icons.arrow_back, color: Colors.white),
+                    icon:  Icon(Icons.arrow_back, color: Colors.white),
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
@@ -27,8 +27,8 @@ class Admin_CancelledPg extends StatelessWidget {
                   Expanded(
                     child: Center(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 30),
-                        child: const Center(
+                        padding:  EdgeInsets.only(top: 30),
+                        child:  Center(
                           child: Text(
                             'REJECTED WORKS',
                             style: TextStyle(
@@ -44,7 +44,7 @@ class Admin_CancelledPg extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 20), // Add space between header and list
+             SizedBox(height: 20), // Add space between header and list
             Expanded(
               child: InkWell(onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -52,11 +52,11 @@ class Admin_CancelledPg extends StatelessWidget {
                 },));
               },
                 child: ListView.builder(
-                  padding: const EdgeInsets.all(10.0),
+                  padding:  EdgeInsets.all(10.0),
                   itemCount: 10,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 3.0),
+                      padding:  EdgeInsets.symmetric(vertical: 3.0),
                       child: ListTile(
                         tileColor: Colors.grey[200],
                         leading: Container(
@@ -71,13 +71,13 @@ class Admin_CancelledPg extends StatelessWidget {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        title: const Text(
+                        title:  Text(
                           'Name',
                           style: TextStyle(fontSize: 18),
                         ),
                         subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
+                          children:  [
                             Text(
                               'Date',
                               style: TextStyle(fontSize: 16),

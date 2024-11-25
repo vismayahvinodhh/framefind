@@ -30,7 +30,7 @@ class _Admin_NotificationState extends State<Admin_Notification> {
         centerTitle: true,
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 10),
+            padding:  EdgeInsets.only(right: 10),
             child: CircleAvatar(
               radius: 20, // Adjust the size of the profile picture
               backgroundImage: AssetImage("assets/admin.png"), // Replace with your asset image path

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:framefind/Admin/Admin_dashboard.dart';
+import 'package:framefind/Photographer/Photographer_Signup.dart';
+import 'package:framefind/User/User_Signup.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Admin_Login extends StatelessWidget {
+
+class Photographer_login extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -44,22 +47,18 @@ class Admin_Login extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Welcome Text
-                  Text(
-                    "Welcome",
-                    style: GoogleFonts.poppins(
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.brown,
+                  Center(
+                    child: Text(
+                      "Login",
+                      style: GoogleFonts.poppins(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.brown,
+                      ),
                     ),
                   ),
-                  Text(
-                    "to FrameFind Admin Panel",
-                    style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      color: Colors.brown,
-                    ),
-                  ),
-                   SizedBox(height: 40),
+
+                  const SizedBox(height: 40),
 
                   // Email TextField
                   TextFormField(
@@ -69,14 +68,15 @@ class Admin_Login extends StatelessWidget {
                       labelStyle: GoogleFonts.poppins(),
                       hintText: "example@email.com",
                       hintStyle: GoogleFonts.poppins(),
-                      border:  OutlineInputBorder(
+                      border: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(12)),
                       ),
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return "Email is required";
-                      } else if (!RegExp(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
+                      } else if (!RegExp(
+                          r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
                           .hasMatch(value)) {
                         return "Enter a valid email address";
                       }
@@ -110,7 +110,7 @@ class Admin_Login extends StatelessWidget {
                     },
                   ),
 
-                   SizedBox(height: 40),
+                  const SizedBox(height: 40),
 
                   // Login Button
                   SizedBox(
@@ -119,12 +119,11 @@ class Admin_Login extends StatelessWidget {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           // Navigate to Admin Dashboard
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Admin_Dashboard(),
-                            ),
-                          );
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (context) {
+                              return Photographer_login();
+                            },
+                          ));
                         }
                       },
                       style: ElevatedButton.styleFrom(
@@ -148,6 +147,48 @@ class Admin_Login extends StatelessWidget {
               ),
             ),
           ),
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 200),
+                child: Text(
+                  "Forgot Password?",
+                  style: TextStyle(color: Colors.black),
+                ),
+              )
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 200),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Don't have an account?",
+                  style: GoogleFonts.poppins(
+                    color: Colors.black,
+                    fontSize: 14,
+                  ),
+                ),
+                const SizedBox(width: 5),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return Photographer_Signup();
+                    },));// Navigate to login screen
+                  },
+                  child: Text(
+                    "Sign up",
+                    style: GoogleFonts.poppins(
+                      color: Colors.brown,
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
           Expanded(
             flex: 2,
             child: Stack(
@@ -157,7 +198,7 @@ class Admin_Login extends StatelessWidget {
                   child: Container(
                     height: 120,
                     width: 150,
-                    decoration:  BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.brown,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(80),

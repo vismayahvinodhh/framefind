@@ -37,7 +37,7 @@ class _Admin_RatingState extends State<Admin_Rating> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding:  EdgeInsets.all(8.0),
         child: Column(
           children: [
             Center(
@@ -51,7 +51,7 @@ class _Admin_RatingState extends State<Admin_Rating> {
                 itemCount: 1, // Adjust this for multiple items
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    padding:  EdgeInsets.symmetric(vertical: 8.0),
                     child: Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),

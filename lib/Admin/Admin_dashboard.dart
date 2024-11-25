@@ -136,7 +136,7 @@ class Admin_Dashboard extends StatelessWidget {
                     ),
                     child: InkWell(onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context) {
-                        return TransactionHistoryPage();
+                        return Admin_transactionhistory();
                       },));
                     },
                       child: Container(

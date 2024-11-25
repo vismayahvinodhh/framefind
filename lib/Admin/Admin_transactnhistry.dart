@@ -3,8 +3,8 @@ import 'package:framefind/Admin/Admin_dashboard.dart';
 
 import 'Admin_paymentdetails.dart';
 
-class TransactionHistoryPage extends StatelessWidget {
-  const TransactionHistoryPage({super.key});
+class Admin_transactionhistory extends StatelessWidget {
+  const Admin_transactionhistory({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +13,8 @@ class TransactionHistoryPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.brown.shade300,
         title: Padding(
-          padding: const EdgeInsets.only(top: 20),
-          child: const Text(
+          padding:  EdgeInsets.only(top: 20),
+          child:  Text(
             "TRANSACTION HISTORY",
             style: TextStyle(
                 color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17),
@@ -26,10 +26,10 @@ class TransactionHistoryPage extends StatelessWidget {
             return Admin_Dashboard();
           },));
         },
-            child: const Icon(Icons.arrow_back)),
+            child:  Icon(Icons.arrow_back)),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(top: 10, right: 10),
+            padding:  EdgeInsets.only(top: 10, right: 10),
             child: CircleAvatar(
               radius: 18,
               backgroundImage: AssetImage('assets/admin.png'),
@@ -38,7 +38,7 @@ class TransactionHistoryPage extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 20),
+        padding:  EdgeInsets.only(top: 20),
         child: ListView(
           children: [
             InkWell(
@@ -50,13 +50,13 @@ class TransactionHistoryPage extends StatelessWidget {
                 ));
               },
               child: Card(
-                margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                margin:  EdgeInsets.symmetric(horizontal: 5, vertical: 2),
                 child: Padding(
-                  padding: const EdgeInsets.all(15.0),
+                  padding:  EdgeInsets.all(15.0),
                   child: Column(
                     children: [
                       Row(
-                        children: const [
+                        children:  [
                           Text(
                             "Name ➔ ",
                             style: TextStyle(fontWeight: FontWeight.bold),
@@ -96,13 +96,13 @@ class TransactionHistoryPage extends StatelessWidget {
               ),
             ),
             Card(
-              margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+              margin:  EdgeInsets.symmetric(horizontal: 5, vertical: 2),
               child: Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding:  EdgeInsets.all(15.0),
                 child: Column(
                   children: [
                     Row(
-                      children: const [
+                      children:  [
                         Text(
                           "Name ➔ ",
                           style: TextStyle(fontWeight: FontWeight.bold),
@@ -110,22 +110,22 @@ class TransactionHistoryPage extends StatelessWidget {
                         Text("Photographer Name"),
                       ],
                     ),
-                    const SizedBox(height: 5),
+                     SizedBox(height: 5),
                     Row(
-                      children: const [
+                      children:  [
                         Text("10/11/2024"),
                       ],
                     ),
-                    const SizedBox(height: 5),
+                     SizedBox(height: 5),
                     Row(
-                      children: const [
+                      children:  [
                         Text("Category"),
                       ],
                     ),
-                    const SizedBox(height: 10),
+                     SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
-                      children: const [
+                      children:  [
                         Text(
                           "₹ 2000/-",
                           style: TextStyle(
@@ -141,13 +141,13 @@ class TransactionHistoryPage extends StatelessWidget {
               ),
             ),
             Card(
-              margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+              margin:  EdgeInsets.symmetric(horizontal: 5, vertical: 2),
               child: Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding:  EdgeInsets.all(15.0),
                 child: Column(
                   children: [
                     Row(
-                      children: const [
+                      children:  [
                         Text(
                           "Name ➔ ",
                           style: TextStyle(fontWeight: FontWeight.bold),
@@ -155,22 +155,22 @@ class TransactionHistoryPage extends StatelessWidget {
                         Text("Photographer Name"),
                       ],
                     ),
-                    const SizedBox(height: 5),
+                     SizedBox(height: 5),
                     Row(
-                      children: const [
+                      children:  [
                         Text("10/11/2024"),
                       ],
                     ),
-                    const SizedBox(height: 5),
+                     SizedBox(height: 5),
                     Row(
-                      children: const [
+                      children:  [
                         Text("Category"),
                       ],
                     ),
-                    const SizedBox(height: 10),
+                     SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
-                      children: const [
+                      children:  [
                         Text(
                           "₹ 2000/-",
                           style: TextStyle(
@@ -186,13 +186,13 @@ class TransactionHistoryPage extends StatelessWidget {
               ),
             ),
             Card(
-              margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+              margin:  EdgeInsets.symmetric(horizontal: 5, vertical: 2),
               child: Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding:  EdgeInsets.all(15.0),
                 child: Column(
                   children: [
                     Row(
-                      children: const [
+                      children:  [
                         Text(
                           "Name ➔ ",
                           style: TextStyle(fontWeight: FontWeight.bold),
@@ -200,22 +200,22 @@ class TransactionHistoryPage extends StatelessWidget {
                         Text("Photographer Name"),
                       ],
                     ),
-                    const SizedBox(height: 5),
+                     SizedBox(height: 5),
                     Row(
-                      children: const [
+                      children:  [
                         Text("10/11/2024"),
                       ],
                     ),
-                    const SizedBox(height: 5),
+                     SizedBox(height: 5),
                     Row(
-                      children: const [
+                      children:  [
                         Text("Category"),
                       ],
                     ),
-                    const SizedBox(height: 10),
+                     SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
-                      children: const [
+                      children:  [
                         Text(
                           "₹ 2000/-",
                           style: TextStyle(
@@ -231,13 +231,13 @@ class TransactionHistoryPage extends StatelessWidget {
               ),
             ),
             Card(
-              margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+              margin:  EdgeInsets.symmetric(horizontal: 5, vertical: 2),
               child: Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding:  EdgeInsets.all(15.0),
                 child: Column(
                   children: [
                     Row(
-                      children: const [
+                      children:  [
                         Text(
                           "Name ➔ ",
                           style: TextStyle(fontWeight: FontWeight.bold),
@@ -245,22 +245,22 @@ class TransactionHistoryPage extends StatelessWidget {
                         Text("Photographer Name"),
                       ],
                     ),
-                    const SizedBox(height: 5),
+                     SizedBox(height: 5),
                     Row(
-                      children: const [
+                      children:  [
                         Text("10/11/2024"),
                       ],
                     ),
-                    const SizedBox(height: 5),
+                     SizedBox(height: 5),
                     Row(
-                      children: const [
+                      children:  [
                         Text("Category"),
                       ],
                     ),
-                    const SizedBox(height: 10),
+                     SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
-                      children: const [
+                      children:  [
                         Text(
                           "₹ 2000/-",
                           style: TextStyle(

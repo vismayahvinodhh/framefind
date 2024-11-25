@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:framefind/User/User_notification.dart';
 import 'package:framefind/User/User_wishlist.dart';
+
+import 'User_profile.dart';
 
 class User_Homepg extends StatefulWidget {
   @override
@@ -21,12 +24,22 @@ class _User_HomepgState extends State<User_Homepg>
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.brown[300],
-        leading: ClipOval(
-          child: Image.asset(
-            "assets/user1.png",
-            fit: BoxFit.fill,
-            height: 13,
-            width: 13,
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: InkWell(onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return User_profile();
+            },));
+          },
+            child: CircleAvatar(
+              backgroundColor: Colors.white,
+              child: ClipOval(
+                child: Image.asset(
+                  "assets/user-png-33842.png",
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
           ),
         ),
         title: Container(
@@ -57,7 +70,9 @@ class _User_HomepgState extends State<User_Homepg>
           IconButton(
             icon: const Icon(Icons.notifications, color: Colors.white),
             onPressed: () {
-              // Notifications action
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return User_notification();
+              },));
             },
           ),
         ],
@@ -68,7 +83,6 @@ class _User_HomepgState extends State<User_Homepg>
             child: ListView(
               padding: const EdgeInsets.all(16),
               children: [
-                // Photographer Card 1
                 Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
@@ -121,8 +135,6 @@ class _User_HomepgState extends State<User_Homepg>
                   ),
                 ),
                 const SizedBox(height: 16),
-
-
                 Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
@@ -143,7 +155,7 @@ class _User_HomepgState extends State<User_Homepg>
                         radius: 30,
                         backgroundColor: Colors.grey,
                         child:
-                            Image(image: AssetImage("assets/pg_profile.png")),
+                        Image(image: AssetImage("assets/pg_profile.png")),
                       ),
                       const SizedBox(width: 16),
                       Column(
@@ -172,8 +184,6 @@ class _User_HomepgState extends State<User_Homepg>
                   ),
                 ),
                 const SizedBox(height: 16),
-
-                // Photographer Card 3
                 Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
@@ -194,7 +204,7 @@ class _User_HomepgState extends State<User_Homepg>
                         radius: 30,
                         backgroundColor: Colors.grey,
                         child:
-                            Image(image: AssetImage("assets/pg_profile.png")),
+                        Image(image: AssetImage("assets/pg_profile.png")),
                       ),
                       const SizedBox(width: 16),
                       Column(

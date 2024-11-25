@@ -18,7 +18,7 @@ class Admin_Pgcancelled_details extends StatelessWidget {
               return Admin_CancelledPg();
             },));
           },
-            child: const Icon(
+            child:  Icon(
               Icons.arrow_back,
               color: Colors.black,
             ),
@@ -27,7 +27,7 @@ class Admin_Pgcancelled_details extends StatelessWidget {
         body: Center(
           child: Container(
             width: 300,
-            padding: const EdgeInsets.all(80),
+            padding:  EdgeInsets.all(80),
             decoration: BoxDecoration(
               color: Colors.grey.shade200,
               borderRadius: BorderRadius.circular(20),
@@ -40,18 +40,18 @@ class Admin_Pgcancelled_details extends StatelessWidget {
                   backgroundColor: Colors.grey.shade300,
                   child: Image(image: AssetImage("assets/admin.png"))
                 ),
-                const SizedBox(height: 10),
-                const Text(
+                 SizedBox(height: 10),
+                 Text(
                   'NAME',
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 20),
+                 SizedBox(height: 20),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children:  [
                     Row(
                       children: [
                         Text(

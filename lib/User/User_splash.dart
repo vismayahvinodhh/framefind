@@ -27,11 +27,8 @@ class _User_SplashState extends State<User_Splash> {
           ),
 
           // Container at the bottom
-          Positioned(
-            bottom: 30, // Adjust the distance from the bottom
-            left: 20, // Align left
-            right: 20, // Align right
-            child: InkWell(
+         // Align right
+             InkWell(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
@@ -39,39 +36,42 @@ class _User_SplashState extends State<User_Splash> {
                   },
                 ));
               },
-              child: Container(
-                width: 100,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.brown,
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "CONTINUE..",
-                      style: GoogleFonts.poppins( // Use Google Fonts here
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 750,left: 92),
+                child: Container(
+                  width: 180,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.brown,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "CONTINUE..",
+                        style: GoogleFonts.poppins( // Use Google Fonts here
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      color: Colors.white,
-                      size: 15,
-                    ),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      color: Colors.white,
-                      size: 15,
-                    ),
-                  ],
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.white,
+                        size: 15,
+                      ),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.white,
+                        size: 15,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
+
         ],
       ),
     );

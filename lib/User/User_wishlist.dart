@@ -9,7 +9,7 @@ class User_Wishlist extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          '               Favourites',
+          '             Favourites',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.brown,

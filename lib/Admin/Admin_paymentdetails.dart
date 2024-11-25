@@ -13,20 +13,20 @@ class Admin_paymentdetails extends StatelessWidget {
         backgroundColor: Colors.brown.shade300,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          icon:  Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        padding:  EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             // Profile Section
             Container(
-              padding: const EdgeInsets.all(20.0),
+              padding:  EdgeInsets.all(20.0),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(16.0),
@@ -34,16 +34,14 @@ class Admin_paymentdetails extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // Profile Picture
                   CircleAvatar(
                     radius: 30,
                     backgroundColor: Colors.grey.shade300,
                     child:Image(image: AssetImage("assets/admin.png")
                     ),
                   ),
-                  const SizedBox(height: 8),
-                  // Name and Mobile Number
-                  const Text(
+                   SizedBox(height: 8),
+                   Text(
                     "Name",
                     style: TextStyle(
                       fontSize: 18,
@@ -95,7 +93,6 @@ class Admin_paymentdetails extends StatelessWidget {
                     ),
                   ),
                    SizedBox(height: 16),
-                  // UPI Transaction Details
                    Divider(color: Colors.grey),
                    SizedBox(height: 8),
                    Align(
@@ -142,8 +139,8 @@ class Admin_paymentdetails extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 8),
-                  const Align(
+                   SizedBox(height: 8),
+                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "From: JOHN",
@@ -154,7 +151,7 @@ class Admin_paymentdetails extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Align(
+                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "john",
@@ -167,7 +164,7 @@ class Admin_paymentdetails extends StatelessWidget {
                 ],
               ),
             ),
-            const Spacer(),
+             Spacer(),
             // Done Button
 
              SizedBox(height: 20),

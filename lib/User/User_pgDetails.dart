@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:framefind/User/User_pgbooking.dart';
 
 class User_Pgdetails extends StatelessWidget {
   @override
@@ -15,15 +16,15 @@ class User_Pgdetails extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Circular Avatar with Icon
+
             CircleAvatar(
               radius: 50,
               backgroundColor: Colors.grey[300],
               child: Image(image: AssetImage("assets/pg_profile.png")),
             ),
-            const SizedBox(height: 10),
-            // Name Text
-            const Text(
+             SizedBox(height: 10),
+
+             Text(
               'Name',
               style: TextStyle(
                 fontSize: 20,
@@ -31,9 +32,8 @@ class User_Pgdetails extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-            const SizedBox(height: 20),
-            // Works Label
-            const Align(
+             SizedBox(height: 20),
+            Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 'Works:',
@@ -44,8 +44,8 @@ class User_Pgdetails extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
-            // Grid of Works
+             SizedBox(height: 10),
+
             Expanded(
               child: GridView.count(
                 crossAxisCount: 2,
@@ -66,7 +66,7 @@ class User_Pgdetails extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return User_Pgdetails();
+                  return User_pg_booking();
                 }));
               },
               style: ElevatedButton.styleFrom(
@@ -78,7 +78,7 @@ class User_Pgdetails extends StatelessWidget {
                 ),
               ),
               child: const Text(
-                'Confirm',
+                'Request',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
