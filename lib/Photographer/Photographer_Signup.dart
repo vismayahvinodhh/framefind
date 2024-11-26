@@ -348,7 +348,8 @@ class _Photographer_SignupState extends State<Photographer_Signup> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Photographer_login(),
+                            builder: (context) =>
+                                Photographer_login(),
                           ),
                         );
                       },

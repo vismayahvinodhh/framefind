@@ -9,6 +9,10 @@ import 'Admin/Admin_dashboard.dart';
 import 'Admin/Admin_homepg.dart';
 import 'Admin/Admin_login.dart';
 import 'Admin/Admin_paymentdetails.dart';
+import 'Photographer/Photographer_Home.dart';
+import 'Photographer/Photographer_StatusCompleted.dart';
+import 'Photographer/Photographer_rating.dart';
+import 'Photographer/Photographer_services.dart';
 import 'User/User_AdvancePayment.dart';
 import 'User/User_PaymentSuccessful.dart';
 import 'User/User_pgbooking.dart';
@@ -32,7 +36,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: Photograher_Splash(),
+        home: Photographer_StatusCompleted(),
 
 
       ),
