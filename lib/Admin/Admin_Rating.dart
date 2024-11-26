@@ -60,10 +60,7 @@ class _Admin_RatingState extends State<Admin_Rating> {
                       child: Container(
                         width: double.infinity,
                         padding: EdgeInsets.all(16.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey, width: 2),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
+
                         child: Column(
                           children: [
                             Row(

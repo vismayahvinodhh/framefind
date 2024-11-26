@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:framefind/Photographer/Photographer_Home.dart';
-import 'package:framefind/Photographer/Photographer_addService.dart';
 
-class Photographer_Service extends StatefulWidget {
+class Photographer_Services extends StatefulWidget {
   @override
-  _Photographer_ServiceState createState() => _Photographer_ServiceState();
+  _Photographer_ServicesState createState() => _Photographer_ServicesState();
 }
 
-class _Photographer_ServiceState extends State<Photographer_Service> {
-  final List<String> shoots = [
+class _Photographer_ServicesState extends State<Photographer_Services> {
+  List<String> services = [
     "Newborn Shoots",
     "Festivals",
     "Wedding",
@@ -20,95 +20,149 @@ class _Photographer_ServiceState extends State<Photographer_Service> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.brown,
+        backgroundColor: Colors.brown.shade300,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white),
+          icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
-         Navigator.push(context, MaterialPageRoute(builder: (context) {
-           return Photographer_home();
-         },));
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) {
+                return Photographer_home();
+              },
+            ));
           },
         ),
         title: Text(
-          "Shoots",
-          style: TextStyle(color: Colors.white),
+          "Services",
+          style: TextStyle(color: Colors.black),
         ),
+        centerTitle: true,
       ),
       body: Column(
         children: [
-          SizedBox(height: 16),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: ListView.builder(
-                itemCount: shoots.length,
-                itemBuilder: (context, index) {
-                  return Card(
-                    margin: const EdgeInsets.symmetric(vertical: 8),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: ListTile(
-                      title: Text(
-                        shoots[index],
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      trailing: IconButton(
-                        icon: Icon(Icons.delete, color: Colors.red),
-                        onPressed: () {
-                          setState(() {
-                            shoots.removeAt(index);
-                          });
-                        },
-                      ),
-                    ),
-                  );
-                },
+              padding: EdgeInsets.all(16),
+              child: Container(
+                decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(10),
+              ),
+                child: Card(
+                  elevation: 3,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: ListView.builder(
+                    padding: EdgeInsets.all(8),
+                    itemCount: services.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        title: Text(
+                          services[index],
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        trailing: Icon(
+                          Icons.delete,
+                          color: Colors.black,
+                        ), // Delete icon without functionality
+                      );
+                    },
+                  ),
+                ),
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: FloatingActionButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return Photographer_addService();
-                },));
-              },
-              backgroundColor: Colors.brown,
-              child: Icon(Icons.add, color: Colors.white),
-            ),
-          ),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 1, // Service page is active
-        onTap: (index) {
-          // Handle navigation
-        },
-        items: [
-          BottomNavigationBarItem(
-            icon:
-
-            InkWell(onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return Photographer_home();
-              },));
+          SizedBox(height: 16),
+          FloatingActionButton(
+            backgroundColor: Colors.brown,
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return Add_Service();
+                },
+              );
             },
-                child: Icon(Icons.camera_alt)),
-            label: 'Request',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.miscellaneous_services),
-            label: 'Service',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.star),
-            label: 'Rating',
+            child: Icon(Icons.add, color: Colors.white),
           ),
         ],
       ),
     );
   }
 }
+class Add_Service extends StatefulWidget {
+  const Add_Service({super.key});
+
+  @override
+  State<Add_Service> createState() => _Add_ServiceState();
+}
+
+class _Add_ServiceState extends State<Add_Service> {
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      backgroundColor: Colors.brown.shade300,
+      title: Text(
+        'Add service',
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          TextFormField(
+            decoration: InputDecoration(
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.transparent),
+                  borderRadius: BorderRadius.circular(10)),
+              border: InputBorder.none,
+              filled: true,
+              fillColor: Colors.white,
+            ),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter a service name';
+              }
+              return null;
+            },
+          ),
+          SizedBox(
+            height: 20.h,
+          ),
+        ],
+      ),
+      actions: <Widget>[
+        Center(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 50, right: 50),
+              child: InkWell(onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return Photographer_Services();
+                },));
+              },
+                child: Container(
+                  width: 250.w,
+                  height: 55.h,
+                  decoration: BoxDecoration(
+                      color: Colors.brown,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Center(
+                    child: Text(
+                      'Add',
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+        SizedBox(
+          height: 30.h,
+        ),
+      ],
+    );
+  }
+}
+

@@ -11,6 +11,8 @@ import 'Admin/Admin_login.dart';
 import 'Admin/Admin_paymentdetails.dart';
 import 'Photographer/Photographer_Home.dart';
 import 'Photographer/Photographer_StatusCompleted.dart';
+import 'Photographer/Photographer_acceptorreject.dart';
+import 'Photographer/Photographer_notification.dart';
 import 'Photographer/Photographer_rating.dart';
 import 'Photographer/Photographer_services.dart';
 import 'User/User_AdvancePayment.dart';
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: Photographer_StatusCompleted(),
+        home: Photographer_Accept_or_reject(),
 
 
       ),

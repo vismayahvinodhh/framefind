@@ -1,177 +1,242 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:framefind/Photographer/Photographer_services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:framefind/Photographer/Photographer_notification.dart';
 
-
-class Photographer_home extends StatefulWidget {
-  @override
-  _Photographer_homeState createState() => _Photographer_homeState();
-}
-
-class _Photographer_homeState extends State<Photographer_home> {
-  int _selectedIndex = 0;
-
+class Photographer_home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-
-        backgroundColor: Colors.white,
-        elevation: 0,
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return Photographer_home();
-              },));
-
-            },
-            icon: Icon(
-              Icons.notifications,
-              color: Colors.black,
+    return DefaultTabController(
+      length: 2, // Number of tabs
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.brown.shade300,
+          elevation: 0,
+          leading: IconButton(
+            icon: Icon(Icons.menu, color: Colors.black),
+            onPressed: () {},
+          ),
+          actions: [
+            CircleAvatar(
+              backgroundColor: Colors.grey[300],
+              child: InkWell(onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return Photographer_notification();
+                },));
+              },
+                  child: Icon(Icons.notifications, color: Colors.black)),
             ),
-          ),
-          CircleAvatar(
-            backgroundColor: Colors.grey,
-            child:Image(image: AssetImage("assets/pg_profile.png"))
-          ),
-          SizedBox(width: 16),
-        ],
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        _selectedIndex = 0;
-                      });
-                    },
-                    child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 12),
-                      decoration: BoxDecoration(
-                        color: _selectedIndex == 0 ? Colors.brown : Colors.grey[300],
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Requests",
-                          style: TextStyle(
-                            color: _selectedIndex == 0 ? Colors.white : Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
+            SizedBox(width: 10),
+          ],
+          bottom: TabBar(
+            labelColor: Colors.white,
+            unselectedLabelColor: Colors.black,
+            indicator: BoxDecoration(
+              color: Colors.brown,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            tabs: [
+              Tab(
+                child: Container(
+                  height: 60,
+                  width: 250,
+                  decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(5)),
+                  child: Center(
+                    child: Text(
+                      'Requests',
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
-                SizedBox(width: 8),
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        _selectedIndex = 1;
-                      });
-                    },
-                    child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 12),
-                      decoration: BoxDecoration(
-                        color: _selectedIndex == 1 ? Colors.brown : Colors.grey[300],
-                        borderRadius: BorderRadius.circular(8),
+              ),
+              Tab(
+                child: Container(
+                  height: 60,
+                  width: 250,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Accepted',
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        body: TabBarView(children: [
+          Photographer_request(),
+          Photographer_accepted(),
+        ]),
+      ),
+    );
+  }
+}
+
+class Photographer_request extends StatefulWidget {
+  const Photographer_request({super.key});
+
+  @override
+  State<Photographer_request> createState() => _Photographer_requestState();
+}
+
+class _Photographer_requestState extends State<Photographer_request> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListView.builder(
+        padding: EdgeInsets.all(16),
+        itemBuilder: (context, index) {
+          return Container(
+            margin: EdgeInsets.only(bottom: 16),
+            padding: const EdgeInsets.all(16.0),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Row(
+              children: [
+                Column(
+                  children: [
+                    CircleAvatar(
+                      radius: 30,
+                      backgroundColor: Colors.grey[300],
+                      backgroundImage: AssetImage("assets/user2.png"),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      "Name",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        color: Colors.black,
                       ),
-                      child: Center(
-                        child: Text(
-                          "Accepted",
-                          style: TextStyle(
-                            color: _selectedIndex == 1 ? Colors.white : Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
+                    ),
+                  ],
+                ),
+                SizedBox(width: 20),
+                // Right Side: Category, Date, Time, Place
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Category",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          fontSize: 14,
+                          color: Colors.black,
                         ),
                       ),
+                      SizedBox(height: 8),
+                      Text(
+                        "Date",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 13,
+                          color: Colors.black,
+                        ),
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        "Time",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 13,
+                          color: Colors.black,
+                        ),
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        "Place",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 13,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+class Photographer_accepted extends StatefulWidget {
+  const Photographer_accepted({super.key});
+
+  @override
+  State<Photographer_accepted> createState() => _Photographer_acceptedState();
+}
+
+class _Photographer_acceptedState extends State<Photographer_accepted> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListView(
+        padding: EdgeInsets.all(16),
+        children: [
+          Container(
+            margin: EdgeInsets.only(bottom: 16),
+            padding: const EdgeInsets.all(16.0),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Row(
+              children: [
+                CircleAvatar(
+                  radius: 30,
+                  backgroundColor: Colors.grey[300],
+                  child: Icon(Icons.person, color: Colors.black),
+                ),
+                SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Name",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                      SizedBox(height: 4),
+                      Text("Newborn Shoots"),
+                      Text("Date"),
+                      Text("Time"),
+                      Text("Place"),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Text(
+                    "Payment pending",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
               ],
             ),
-          ),
-          SizedBox(height: 16),
-          Expanded(
-            child: ListView.builder(
-              itemCount: 3,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Row(
-                        children: [
-                          CircleAvatar(radius: 40,
-                            backgroundColor: Colors.grey,
-                            child:Image(image: AssetImage("user2.png."),width: 35,height: 35,)
-                          ),
-                          SizedBox(width: 16),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Name",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
-                                  ),
-                                ),
-                                SizedBox(height: 4),
-                                Text("Category"),
-                                Text("Date"),
-                                Text("Time"),
-                                Text("Place"),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.camera_alt),
-            label: 'Request',
-          ),
-          BottomNavigationBarItem(
-            icon:
-            InkWell(onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return Photographer_Service();
-              },));
-            },
-
-                child: Icon(Icons.miscellaneous_services)),
-            label: 'Service',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.star),
-            label: 'Rating',
           ),
         ],
       ),
