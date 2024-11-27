@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:framefind/Photographer/Photographer_StatusCompleted.dart';
 
 class Photographer_Accept_or_reject extends StatelessWidget {
   const Photographer_Accept_or_reject({super.key});
@@ -132,8 +133,47 @@ class Photographer_Accept_or_reject extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
+            ),SizedBox(height: 50,),
 
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                // Accept Button
+                ElevatedButton(
+                  onPressed: () {
+                    // Handle Accept action
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.brown,
+                    shape: CircleBorder(),
+                    padding: EdgeInsets.all(20),
+                  ),
+                  child: Icon(
+                    Icons.check,
+                    size: 35,
+                    color: Colors.green,
+                  ),
+                ),
+
+                ElevatedButton(
+                  onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return Photographer_StatusCompleted();
+                  },));
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.brown,
+                    shape: CircleBorder(),
+                    padding: EdgeInsets.all(20),
+                  ),
+                  child: Icon(
+                    Icons.close,
+                    size: 35,
+                    color: Colors.red,
+                  ),
+                ),
+              ],
+            ),
 
           ],
         ),

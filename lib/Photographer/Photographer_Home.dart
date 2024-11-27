@@ -14,7 +14,9 @@ class Photographer_home extends StatelessWidget {
           elevation: 0,
           leading: IconButton(
             icon: Icon(Icons.menu, color: Colors.black),
-            onPressed: () {},
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
           ),
           actions: [
             CircleAvatar(
